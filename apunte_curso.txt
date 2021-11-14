@@ -42,3 +42,25 @@ se escribe de la siguiente manera: alias acti=.\environment\Scripts\activate
 tener en cuenta que environment es el nombre de mi entorno virtual, por si creo un entorno con otro nombre hay que
 pasarle ese.
 - para salir del entorno es de la siguiente manera, solo escribo lo siguiente y ya: deactivate  	
+
+IMPORTANTE:
+
+Compartir archivo con las mismas versiones de programas instalados en mi máquina para que otra persona instale las
+mismas en su máquina, y no se le dificulte correr nuestro proyecto,  entonces hago así: 
+pip freeze > requirements.txt
+ya con ese comando queda creado el archivo y para instalar exactamente las dependencias o programas que hay en ese
+archivo lo hacemos ejecutando este comando y listo: pip install -r requirements.txt
+con eso quedan los programas instalados en esa máquina
+
+hay otros manejadores de paquetes o dependencias dentro de python también tenemos a pyenv y pipenv
+
+Alternativa Anaconda:
+
+es un software completo para los cientificos de datos, es una distribución especial de python que nos permite crear entornos virtuales e instalar dependencias pero
+de manera gŕafica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque está creada explicítamente para eso.
+
+- Como instalarla:
+la encontramos en: https://www.anaconda.com/products/individual
+no activar los checks porque si no se va romper todo el python que tengamos instalado en el pc, por lo tanto cuando sale la pantalla de los dos checks lo dejamos así,
+desmarcados
+
