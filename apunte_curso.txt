@@ -64,3 +64,6 @@ la encontramos en: https://www.anaconda.com/products/individual
 no activar los checks porque si no se va romper todo el python que tengamos instalado en el pc, por lo tanto cuando sale la pantalla de los dos checks lo dejamos así,
 desmarcados
 
+- con "code ." desde el cmd abro una el visual studio para hacer código.
+
+
