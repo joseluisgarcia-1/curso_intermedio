@@ -57,7 +57,7 @@ hay otros manejadores de paquetes o dependencias dentro de python tambi茅n tenem
 Alternativa Anaconda:
 
 es un software completo para los cientificos de datos, es una distribuci贸n especial de python que nos permite crear entornos virtuales e instalar dependencias pero
-de manera g艜afica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque est谩 creada explic铆tamente para eso.
+de manera gr胊fica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque est谩 creada explic铆tamente para eso.
 
 - Como instalarla:
 la encontramos en: https://www.anaconda.com/products/individual
@@ -112,14 +112,14 @@ condicion
 Funciones anonimas: lamba
 
 un ejemplo de la estructura es la siguiente: 
-palin = 胠ambda string: string == string[::-1]
+palin = 锟絣ambda string: string == string[::-1]
 print(palin('ana'))
 
 identificador = palin
 argumento = lambda string
 expresion = string == string[::-1]
 
-la palabra lambda en la funci胦n anterior es el que retorna el objeto de tipo funcion
+la palabra lambda en la funci锟給n anterior es el que retorna el objeto de tipo funcion
 
 cuando creamos una funnction lambda es una funcion anonima, pero el nombre que va tener esta funcion con el que la vamos a llamar despues va ser el nombre de la variable
 que va guardar el objeto de tipo funcion que esta expresion retorna
@@ -136,3 +136,36 @@ la funcion lamba es esta misma funcion:
 def palindromo(string):
     return string == string[::-1]
 print(palindromo('ana'))
+
+
+Funciones de orden superior: High order functions
+
+lo que hace es que una funci贸n recibe omo parametro a otra funci贸 y hace algo con ella, ahora hay tres funciones de orden superior que son
+muy importantes en una gran cantidad de lenguajes de programaci贸n, son cl谩sicos y son los siguientes: filter, map, reduce
+
+ejemplo aplicaci贸n list comprehension:
+my_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+squares = [i**2 for i in my_list]
+print(squares)
+print(my_list)
+la explicaci贸n ser铆a la siguiente: para cada i en mi lista voy a colocar esa i elevada al cuadrado, ese es el
+resultado que me deber铆a arrojar la lista comprehension que es los numeros de la lista elevados al cuadrado
+ 
+ahora ejemplo de aplicaci贸n de la funci贸n map con list comprehension:
+
+my_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+result = list(map(lambda x: x**2, my_list))
+print(result)
+explicaci贸n de la funci贸n: tengo la funci贸n lambda como primer par谩metro de map, tengo la lista como segundo
+par谩metro y despu茅s envuelvo a todo esto en la funci贸n list y lo guardo dentro de result
+
+funci贸n reduce:
+
+ejemplo de un forr normal y luego con la funci贸n reduce.
+
+my_list = [2,2,2,2,2]
+all_multipled = 2
+for i in my_list:
+    all_multipled = all_multipled * i
+print(all_multipled)
+
