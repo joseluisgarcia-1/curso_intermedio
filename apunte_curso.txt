@@ -111,4 +111,28 @@ condicion
 
 Funciones anonimas: lamba
 
+un ejemplo de la estructura es la siguiente: 
+palin = √lambda string: string == string[::-1]
+print(palin('ana'))
 
+identificador = palin
+argumento = lambda string
+expresion = string == string[::-1]
+
+la palabra lambda en la funci√on anterior es el que retorna el objeto de tipo funcion
+
+cuando creamos una funnction lambda es una funcion anonima, pero el nombre que va tener esta funcion con el que la vamos a llamar despues va ser el nombre de la variable
+que va guardar el objeto de tipo funcion que esta expresion retorna
+
+por ejemplo una funcion lambda es asi:
+palindromo = lambda string: string == string[::-1]
+print(palindromo('ana'))
+
+la explicacion de la funcion es la siguiente: tenemos una funcion que recibe un string como parametro y lo que hace es retornar, el resultado de la siguiente
+expresion string == string[::-1]
+
+la funcion lamba es esta misma funcion:
+
+def palindromo(string):
+    return string == string[::-1]
+print(palindromo('ana'))
