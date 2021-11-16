@@ -67,3 +67,45 @@ desmarcados
 - con "code ." desde el cmd abro una el visual studio para hacer código.
 
 
+- Listas y diccionarios:
+
+se pueden colocar listas dentro de diccionarios y diccionarios dentro de listas, revisar apuntes dentro del archivo list_and_dict.py a cerca de como se manejan las 
+listas y los diccionarios, recordar que para los diccionarios cuando usamos un for podemos usar metodos directos que nos facilitan obtener datos, por ejemplo tenemos a:
+.keys(), .items(), .value()
+
+List comprehension:
+
+Muy importante esta nueva estructura de for que hizo y es así:
+squares = [for i in range(1, 101) if i % 3 != 0]
+print("*******nueva*********",squares)
+Estudiar esto minuciosamente, este for se lee asi:
+para cada i en el rango que va de 1 a 101 voy a guardar esa i elevada al cuadrado solamente si la i modulo 3 es distinto de cero, es decir, 
+para cada i de los numeros del 1 al 100 voy a guardar ese numero al cuadrado si solamente si no es divisible por 3 	
+
+su estructura es la siguiente: [element for element in iterable if condition], ahora voy a definir cada dato en su mismo orden:
+element: representa a cada uno de los elementos a poner en la nueva lista
+for element in iterable: ciclo a partir de cual se extraerán elementos de otra lista o cualquier iterable
+if condition: condicionn opcional para filtrar los elementos del ciclo
+en otras palabras se entiende asi:
+en mi nueva lista yo voy a guardar para cada elemento en el iterable ese elemento solo si se cumple la condición
+
+Dictionary comprehension:
+
+la estructura es muy parecida a la de las list comprehensions:
+{key:value for value in iterable if condition}, voy a definir cada parte del for
+key:value = representa cada una de las llaves y valores a poner en el nuevo diccionario 
+for value in iterable = ciclo apartir del cual se extraer�an elementos de cualquier iterable
+if condition = condicion opcional para filtrar los elementos del ciclo 
+
+el ejemplo es el siguiente:
+my_dict = {i: i**3 for i in range(1,101) if i % 3 != 0}
+print(my_dict)
+- para cada i en el rango del 1 al 101 yo voy a guardar a i como llave y a i elevado al cubo(3) como valor solamente
+si i % 3 es distinto de cero(0), es decir,
+- para cada numero del 1 al 100 voy a guardar ese numero como llave y ese numero elevado al cubo como valor si ese
+numero no es divisible entre 3
+
+la explicacion de este for es la siguiente: 
+para cada elemento en un iterable yo voy a colocar una lleve y un valor solamente si se cumple una 
+condicion
+
