@@ -109,3 +109,6 @@ la explicacion de este for es la siguiente:
 para cada elemento en un iterable yo voy a colocar una lleve y un valor solamente si se cumple una 
 condicion
 
+Funciones anonimas: lamba
+
+
