@@ -57,7 +57,7 @@ hay otros manejadores de paquetes o dependencias dentro de python también tenem
 Alternativa Anaconda:
 
 es un software completo para los cientificos de datos, es una distribución especial de python que nos permite crear entornos virtuales e instalar dependencias pero
-de manera gr�afica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque está creada explicítamente para eso.
+de manera gr�afica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque está creada explicítamente para eso.
 
 - Como instalarla:
 la encontramos en: https://www.anaconda.com/products/individual
@@ -161,11 +161,44 @@ parámetro y después envuelvo a todo esto en la función list y lo guardo dentr
 
 función reduce:
 
-ejemplo de un forr normal y luego con la función reduce.
+ejemplo de un for normal y luego con la función reduce.
 
 my_list = [2,2,2,2,2]
 all_multipled = 2
 for i in my_list:
     all_multipled = all_multipled * i
 print(all_multipled)
+
+con función reduce: 
+
+from functools import reduce
+my_list = [2, 2, 2, 2, 2]
+all_multiplied = reduce(lambda a,b: a*b, my_list)
+print(all_multiplied)
+
+Filtrando datos:
+
+print("*********funcion lambda con filter**********")
+adults = list(filter(lambda players:players['age']>18, DATA))
+print(adults)
+- La explicación de este es el siguiente: de los players traigalo si la edad de estos players es mayor que 18 de DATA
+- otra explicación, en la lista voy a meter los players(primer players) si la edad('age') de ese players(segundo players)
+es mayor que 18, de la lista de diccionarios DATA
+con esta función lambda obtenmos el dato, sin embargo, nos trae todos los datos de ese player y solo queremos el nombre
+entonces lo hacemos así:
+
+#con esto traemos el nombre de los jugadores que su edad es mayor a 18
+print("*********funcion lambda con map**********")
+adults = list(map(lambda players:players['name'], adults))
+print(adults)
+
+con esta función:     
+print("*********función que funciona con python 3.9**************")
+old_players = list(map(lambda players:players or {'old': players['age'] > 29}, DATA))
+print(old_players)
+
+debería haberme aparte de tomado los jugadores con edad mayor que 29, a ver agregado la llave old en el diccionario
+esto funciona para python 3.9, y además el valor de esta llave tendría que haber sido, false o true de acuerdo
+a la edad del jugador en este caso si es mayor o menor que 29 años
+
 
