@@ -202,3 +202,24 @@ esto funciona para python 3.9, y además el valor de esta llave tendría que hab
 a la edad del jugador en este caso si es mayor o menor que 29 años
 
 
+Errores en el código:
+
+SyntaxError: Error de escritura
+Exception:
+
+están:
+KeyboardInterrupt: sucede cuando nosotros pulsamos ctrl + c en la máquina y esta deja de ejecutarse
+KeyError: ocurre comunmente en los diccionarios y es cuando intentamos acceder a una llave del diccionario que no existe
+IndexError: Este es cuando estamos trabajando con listas e intentamos acceder a un indice o posición de la lista que no existe, por ejemplo nuestra lista tiene
+5 elementos e intetntamos acceder al elemento 7, entonces no arroja ese error
+FileNotFoundError: cuando no se encuentra un archivo
+ZeroDivisionError: cuando intentamos dividir un numero por cero(0)
+ImportError: Cuando intentamos importar un módulo y hay algun error en ese modulo
+para el manejo de errores podemos ver el siguiente ulr: https://realpython.com/python-exceptions
+
+cómo leer un traceback: 
+
+Debbugin:
+
+lo podemos hacer con la herramienta que está en visual studio code que se llama Run and debug y elegimos la opcion
+python file
