@@ -57,7 +57,7 @@ hay otros manejadores de paquetes o dependencias dentro de python también tenem
 Alternativa Anaconda:
 
 es un software completo para los cientificos de datos, es una distribución especial de python que nos permite crear entornos virtuales e instalar dependencias pero
-de manera gŕafica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque está creada explicítamente para eso.
+de manera gr�afica, es decir como una tienda, sin embargo, solo va servir para ciencia de datos porque está creada explicítamente para eso.
 
 - Como instalarla:
 la encontramos en: https://www.anaconda.com/products/individual
@@ -66,4 +66,204 @@ desmarcados
 
 - con "code ." desde el cmd abro una el visual studio para hacer código.
 
+
+- Listas y diccionarios:
+
+se pueden colocar listas dentro de diccionarios y diccionarios dentro de listas, revisar apuntes dentro del archivo list_and_dict.py a cerca de como se manejan las 
+listas y los diccionarios, recordar que para los diccionarios cuando usamos un for podemos usar metodos directos que nos facilitan obtener datos, por ejemplo tenemos a:
+.keys(), .items(), .value()
+
+List comprehension:
+
+Muy importante esta nueva estructura de for que hizo y es así:
+squares = [for i in range(1, 101) if i % 3 != 0]
+print("*******nueva*********",squares)
+Estudiar esto minuciosamente, este for se lee asi:
+para cada i en el rango que va de 1 a 101 voy a guardar esa i elevada al cuadrado solamente si la i modulo 3 es distinto de cero, es decir, 
+para cada i de los numeros del 1 al 100 voy a guardar ese numero al cuadrado si solamente si no es divisible por 3 	
+
+su estructura es la siguiente: [element for element in iterable if condition], ahora voy a definir cada dato en su mismo orden:
+element: representa a cada uno de los elementos a poner en la nueva lista
+for element in iterable: ciclo a partir de cual se extraerán elementos de otra lista o cualquier iterable
+if condition: condicionn opcional para filtrar los elementos del ciclo
+en otras palabras se entiende asi:
+en mi nueva lista yo voy a guardar para cada elemento en el iterable ese elemento solo si se cumple la condición
+
+Dictionary comprehension:
+
+la estructura es muy parecida a la de las list comprehensions:
+{key:value for value in iterable if condition}, voy a definir cada parte del for
+key:value = representa cada una de las llaves y valores a poner en el nuevo diccionario 
+for value in iterable = ciclo apartir del cual se extraer�an elementos de cualquier iterable
+if condition = condicion opcional para filtrar los elementos del ciclo 
+
+el ejemplo es el siguiente:
+my_dict = {i: i**3 for i in range(1,101) if i % 3 != 0}
+print(my_dict)
+- para cada i en el rango del 1 al 101 yo voy a guardar a i como llave y a i elevado al cubo(3) como valor solamente
+si i % 3 es distinto de cero(0), es decir,
+- para cada numero del 1 al 100 voy a guardar ese numero como llave y ese numero elevado al cubo como valor si ese
+numero no es divisible entre 3
+
+la explicacion de este for es la siguiente: 
+para cada elemento en un iterable yo voy a colocar una lleve y un valor solamente si se cumple una 
+condicion
+
+Funciones anonimas: lamba
+
+un ejemplo de la estructura es la siguiente: 
+palin = �lambda string: string == string[::-1]
+print(palin('ana'))
+
+identificador = palin
+argumento = lambda string
+expresion = string == string[::-1]
+
+la palabra lambda en la funci�on anterior es el que retorna el objeto de tipo funcion
+
+cuando creamos una funnction lambda es una funcion anonima, pero el nombre que va tener esta funcion con el que la vamos a llamar despues va ser el nombre de la variable
+que va guardar el objeto de tipo funcion que esta expresion retorna
+
+por ejemplo una funcion lambda es asi:
+palindromo = lambda string: string == string[::-1]
+print(palindromo('ana'))
+
+la explicacion de la funcion es la siguiente: tenemos una funcion que recibe un string como parametro y lo que hace es retornar, el resultado de la siguiente
+expresion string == string[::-1]
+
+la funcion lamba es esta misma funcion:
+
+def palindromo(string):
+    return string == string[::-1]
+print(palindromo('ana'))
+
+
+Funciones de orden superior: High order functions
+
+lo que hace es que una función recibe omo parametro a otra funció y hace algo con ella, ahora hay tres funciones de orden superior que son
+muy importantes en una gran cantidad de lenguajes de programación, son clásicos y son los siguientes: filter, map, reduce
+
+ejemplo aplicación list comprehension:
+my_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+squares = [i**2 for i in my_list]
+print(squares)
+print(my_list)
+la explicación sería la siguiente: para cada i en mi lista voy a colocar esa i elevada al cuadrado, ese es el
+resultado que me debería arrojar la lista comprehension que es los numeros de la lista elevados al cuadrado
+ 
+ahora ejemplo de aplicación de la función map con list comprehension:
+
+my_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+result = list(map(lambda x: x**2, my_list))
+print(result)
+explicación de la función: tengo la función lambda como primer parámetro de map, tengo la lista como segundo
+parámetro y después envuelvo a todo esto en la función list y lo guardo dentro de result
+
+función reduce:
+
+ejemplo de un for normal y luego con la función reduce.
+
+my_list = [2,2,2,2,2]
+all_multipled = 2
+for i in my_list:
+    all_multipled = all_multipled * i
+print(all_multipled)
+
+con función reduce: 
+
+from functools import reduce
+my_list = [2, 2, 2, 2, 2]
+all_multiplied = reduce(lambda a,b: a*b, my_list)
+print(all_multiplied)
+
+Filtrando datos:
+
+print("*********funcion lambda con filter**********")
+adults = list(filter(lambda players:players['age']>18, DATA))
+print(adults)
+- La explicación de este es el siguiente: de los players traigalo si la edad de estos players es mayor que 18 de DATA
+- otra explicación, en la lista voy a meter los players(primer players) si la edad('age') de ese players(segundo players)
+es mayor que 18, de la lista de diccionarios DATA
+con esta función lambda obtenmos el dato, sin embargo, nos trae todos los datos de ese player y solo queremos el nombre
+entonces lo hacemos así:
+
+#con esto traemos el nombre de los jugadores que su edad es mayor a 18
+print("*********funcion lambda con map**********")
+adults = list(map(lambda players:players['name'], adults))
+print(adults)
+
+con esta función:     
+print("*********función que funciona con python 3.9**************")
+old_players = list(map(lambda players:players or {'old': players['age'] > 29}, DATA))
+print(old_players)
+
+debería haberme aparte de tomado los jugadores con edad mayor que 29, a ver agregado la llave old en el diccionario
+esto funciona para python 3.9, y además el valor de esta llave tendría que haber sido, false o true de acuerdo
+a la edad del jugador en este caso si es mayor o menor que 29 años
+
+
+Errores en el código:
+
+SyntaxError: Error de escritura
+Exception:
+
+están:
+KeyboardInterrupt: sucede cuando nosotros pulsamos ctrl + c en la máquina y esta deja de ejecutarse
+KeyError: ocurre comunmente en los diccionarios y es cuando intentamos acceder a una llave del diccionario que no existe
+IndexError: Este es cuando estamos trabajando con listas e intentamos acceder a un indice o posición de la lista que no existe, por ejemplo nuestra lista tiene
+5 elementos e intetntamos acceder al elemento 7, entonces no arroja ese error
+FileNotFoundError: cuando no se encuentra un archivo
+ZeroDivisionError: cuando intentamos dividir un numero por cero(0)
+ImportError: Cuando intentamos importar un módulo y hay algun error en ese modulo
+para el manejo de errores podemos ver el siguiente ulr: https://realpython.com/python-exceptions
+
+cómo leer un traceback: 
+
+Debbugin:
+
+lo podemos hacer con la herramienta que está en visual studio code que se llama Run and debug y elegimos la opcion
+python file
+
+Manejando excepciones:
+try:
+except:
+estudiarlo muy bien
+en el raise enviamos el mensaje que queremos mostrar al usuario en caso de que ocurra el error, y adicional hay que colocarle cuál es el error
+por ejemplo se le puede colocar  el ValueError, SyntaxError, entre otros
+
+Finally: aunque no es muy conocida se usa al final de un try por ejemplo para cerrar un archivo, cerrar una conexión a una base de datos
+o liberar recursos externos, como ejemplo lo siguiente:
+
+try:
+    f = open("apunte_curso.txt")
+finally:
+    f.close()
+
+Assert statements:
+
+son expresiones combinando variables con operadores es otra forma de capturar errores la expliación es así:
+tenemos código, tenemos elassert statement de que es una afirmación y si esa afirmación se cumple es verdadero la 
+expresión devuelve True, y el código continúa su tránsito, de lo contrario si la afirmacipón no se cumple entonces 
+imprime un error la estructura es la siguiente:
+
+assert condición(que es la que devuelve verdadero o falso), mensaje de error
+
+Trabajando con archivos:
+
+los archivos de texto como por ejemplo, .xml, .json, .txt, .py, .css, .js, estos lo que tienen es bytes
+por dentro que solamente representan letras, símbolos, numéros, etc, en cambio que los archivos binarios
+tienen bytes que representan cosas infinitamente cosas más complejas como por ejemplo, datos específicos
+de imagenes, videos, etc y algunos ejemplos de los binarios son: .png, .jpg, .mp4, entre otros
+
+para abrir un archivo de texto con python vamos a encontrar 3 formas de hacerlo:
+- R = Lectura
+- W = Escritura(sobrescribir), este modo lo que hace es que si por ejemplo nosotros sobrescribimos un archivo con 
+un script de python y después volvemos a escribir en ese archivo lo que va hacer el modo w es eliminar el primer 
+archivo y reemplazarlo por el segundo archivo
+- A = Escritura(agregar al final), este modo quiere decir que si yo tengo un archivo que voy a escribir con un 
+script de python y después lo vuelvo a escribir porque ejecuto de nuevo este script lo que va a suceder es que 
+lo nuevo que estoy escribiendo se va agregar al final del archivo, no se va eliminar como el modo w.
+
+como escribir un archivo sin sobrescribir para eso lo hacemos con lo siguiente:
+with open("./ruta/del/archivo.txt", "r") as f:
 
