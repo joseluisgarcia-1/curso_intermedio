@@ -241,9 +241,29 @@ finally:
 
 Assert statements:
 
-son expresiones combinando variables con operadores es otra forma de capturar errores la expliaci�n es así:
-tenemos código, tenemos elassert statement de que es una afirmación y si esa afirmación se cumple es verdadero la expresión devuelve 
-True, y el código continúa su tránsito, de lo contrario si la afirmacipón no se cumple entonces imprime un error
-la estructura es la siguiente:
+son expresiones combinando variables con operadores es otra forma de capturar errores la expliación es así:
+tenemos código, tenemos elassert statement de que es una afirmación y si esa afirmación se cumple es verdadero la 
+expresión devuelve True, y el código continúa su tránsito, de lo contrario si la afirmacipón no se cumple entonces 
+imprime un error la estructura es la siguiente:
 
-assert condiciónque es la que devuelve verdadero o falso), mensaje de error
+assert condición(que es la que devuelve verdadero o falso), mensaje de error
+
+Trabajando con archivos:
+
+los archivos de texto como por ejemplo, .xml, .json, .txt, .py, .css, .js, estos lo que tienen es bytes
+por dentro que solamente representan letras, símbolos, numéros, etc, en cambio que los archivos binarios
+tienen bytes que representan cosas infinitamente cosas más complejas como por ejemplo, datos específicos
+de imagenes, videos, etc y algunos ejemplos de los binarios son: .png, .jpg, .mp4, entre otros
+
+para abrir un archivo de texto con python vamos a encontrar 3 formas de hacerlo:
+- R = Lectura
+- W = Escritura(sobrescribir), este modo lo que hace es que si por ejemplo nosotros sobrescribimos un archivo con 
+un script de python y después volvemos a escribir en ese archivo lo que va hacer el modo w es eliminar el primer 
+archivo y reemplazarlo por el segundo archivo
+- A = Escritura(agregar al final), este modo quiere decir que si yo tengo un archivo que voy a escribir con un 
+script de python y después lo vuelvo a escribir porque ejecuto de nuevo este script lo que va a suceder es que 
+lo nuevo que estoy escribiendo se va agregar al final del archivo, no se va eliminar como el modo w.
+
+como escribir un archivo sin sobrescribir para eso lo hacemos con lo siguiente:
+with open("./ruta/del/archivo.txt", "r") as f:
+
