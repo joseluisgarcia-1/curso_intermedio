@@ -223,3 +223,19 @@ Debbugin:
 
 lo podemos hacer con la herramienta que está en visual studio code que se llama Run and debug y elegimos la opcion
 python file
+
+Manejando excepciones:
+try:
+except:
+estudiarlo muy bien
+en el raise enviamos el mensaje que queremos mostrar al usuario en caso de que ocurra el error, y adicional hay que colocarle cuál es el error
+por ejemplo se le puede colocar  el ValueError, SyntaxError, entre otros
+
+Finally: aunque no es muy conocida se usa al final de un try por ejemplo para cerrar un archivo, cerrar una conexión a una base de datos
+o liberar recursos externos, como ejemplo lo siguiente:
+
+try:
+    f = open("apunte_curso.txt")
+finally:
+    f.close()
+
