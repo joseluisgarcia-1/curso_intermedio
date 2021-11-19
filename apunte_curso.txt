@@ -239,3 +239,11 @@ try:
 finally:
     f.close()
 
+Assert statements:
+
+son expresiones combinando variables con operadores es otra forma de capturar errores la expliaci�n es así:
+tenemos código, tenemos elassert statement de que es una afirmación y si esa afirmación se cumple es verdadero la expresión devuelve 
+True, y el código continúa su tránsito, de lo contrario si la afirmacipón no se cumple entonces imprime un error
+la estructura es la siguiente:
+
+assert condiciónque es la que devuelve verdadero o falso), mensaje de error
